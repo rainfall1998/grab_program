@@ -33,17 +33,17 @@ M -- 臂叶上摆
 
 #指示变量：
 CM_forward_back_dir = 0    ##底盘前后指示，0为停止，1为前进，2为后退
-CM_forward_back_speed  = 20##底盘前后速度,0-99
+CM_forward_back_speed  = 40##底盘前后速度,0-99
 CM_left_right_dir = 0      ##底盘左右指示，0为停止，1为左转，2为右转
-CM_left_right_speed = 20   ##底盘转向速度,0-99
+CM_left_right_speed = 40   ##底盘转向速度,0-99
 GM_rotate_dir = 0          ##云台旋转指示，0为停止，1为左旋，2为右旋
-GM_rotate_speed = 4        ##云台旋转速度,0-99
+GM_rotate_speed = 40        ##云台旋转速度,0-99
 ARM_root_dir = 0           ##臂根上下指示，0为停止，1为上摆，2为下摆
-ARM_root_speed = 4         ##臂根上下速度,0-99
+ARM_root_speed = 40         ##臂根上下速度,0-99
 ARM_stem_dir = 0           ##臂茎上下指示，0为停止，1为上摆，2为下摆
-ARM_stem_speed = 4         ##臂茎上下速度,0-99
+ARM_stem_speed = 40         ##臂茎上下速度,0-99
 ARM_leaf_dir = 0           ##臂叶上下指示，0为停止，1为上摆，2为下摆
-ARM_leaf_speed = 4         ##臂叶上下速度,0-99
+ARM_leaf_speed = 40         ##臂叶上下速度,0-99
 
 ##输出占空比：
 PWM_A_0 = 0        ##PWM范围为0-99(暂定)   
@@ -85,6 +85,19 @@ yellow = 255,255,0
 color = 125,100,210
 
 ##初始化GPIO 对应引脚见：https://blog.csdn.net/qq21497936/article/details/79758560
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4, GPIO.OUT)
+GPIO.setup(14, GPIO.OUT)
+GPIO.setup(17, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
+GPIO.setup(22, GPIO.OUT)
+GPIO.setup(23, GPIO.OUT)
+GPIO.setup(9, GPIO.OUT)
+GPIO.setup(25, GPIO.OUT)
+GPIO.setup(11, GPIO.OUT)
+GPIO.setup(8, GPIO.OUT)
+GPIO.setup(6, GPIO.OUT)
+GPIO.setup(12, GPIO.OUT)
 Motor_A_0 = GPIO.PWM(4,1000)
 Motor_A_1 = GPIO.PWM(14,1000)
 Motor_B_0 = GPIO.PWM(17,1000)
