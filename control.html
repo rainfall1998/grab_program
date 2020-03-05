@@ -1,0 +1,130 @@
+<html>
+       
+<script>
+    function sendMotion(direction) {
+        var url = "requestAddress"
+        var request = new XMLHttpRequest();
+        request.open("POST", url);
+ 
+        request.send(direction)
+    }
+ 
+    function sendStop() {
+        var url = "requestAddress"
+        var request = new XMLHttpRequest();
+        request.open("POST", url);
+        request.send("S")
+    }
+</script>
+<style type="text/css">
+    span.car_control {
+        position: absolute;
+        margin-top: 30%;
+        height: 480px;   
+    }
+ 
+    span.camera {
+        position: absolute;
+        margin-top: 5%;
+        margin-left: 290px;
+        height: 480px;
+        width: 640px;
+        background-color: blue
+    }
+ 
+    span.grab_control {
+        position: absolute;
+        margin-top: 30%;
+        margin-left: 950px;
+        height: 480px;
+        background-color: blue
+    }
+    
+    span.open{
+        position: absolute;
+        margin-top: 40%;
+        margin-left: 550px;
+        height: 50px;
+        background-color: blue
+    }
+
+    button.change{
+        position: absolute;
+        height: 50px;
+        width: 90px;
+    }
+ 
+    button.top {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-left: 90px
+    }
+ 
+    button.left {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-top: 50px;
+    }
+ 
+    button.right {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-top: 50px;
+        margin-left: 180px
+    }
+ 
+    button.bottom {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-top: 100px;
+        margin-left: 90px
+    }
+    button.left_down {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-top: 150px
+    }
+    button.right_down {
+        position: absolute;
+        height: 50px;
+        width: 90px;
+        margin-top: 150px;
+        margin-left: 180px
+    }
+</style>
+ 
+<head>
+    <title>Control Page</title>
+</head>
+ 
+<body>
+    <span id="car_control" class="car_control">
+        <button class="top drectionBtn" id="F" ontouchstart="sendMotion('F')" ontouchend='sendStop()' onmousedown="sendMotion('F')" onmouseup="sendStop()">F</button>
+        <button class="left drectionBtn" id="L" ontouchstart="sendMotion('L')" ontouchend='sendStop()' onmousedown="sendMotion('L')" onmouseup="sendStop()">L</button>
+        <button class="right drectionBtn" id="R" ontouchstart="sendMotion('R')" ontouchend='sendStop()' onmousedown="sendMotion('R')" onmouseup="sendStop()">R</button>
+        <button class="bottom drectionBtn" id="B" ontouchstart="sendMotion('B')" ontouchend='sendStop()' onmousedown="sendMotion('B')" onmouseup="sendStop()">B</button>
+        <button class="left_down drectionBtn" id="LD" ontouchstart="sendMotion('LD')" ontouchend='sendStop()' onmousedown="sendMotion('LD')" onmouseup="sendStop()">LD</button>
+        <button class="right_down drectionBtn" id="RD" ontouchstart="sendMotion('RD')" ontouchend='sendStop()' onmousedown="sendMotion('RD')" onmouseup="sendStop()">RD</button>
+    </span>
+    <span id="camera_view" class="camera">
+        <img id="view" src="cameraAddress?action=stream" />
+    </span>
+    <span id="camera_control" class="grab_control">
+        <button class="top drectionBtn" id="F" ontouchstart="sendMotion('Lup')" ontouchend='sendStop()' onmousedown="sendMotion('Lup')" onmouseup="sendStop()">Lup</button>
+        <button class="left drectionBtn" id="L" ontouchstart="sendMotion('Sup')" ontouchend='sendStop()' onmousedown="sendMotion('Sup')" onmouseup="sendStop()">Sup</button>
+        <button class="right drectionBtn" id="R" ontouchstart="sendMotion('Sdown')" ontouchend='sendStop()' onmousedown="sendMotion('Sdown')" onmouseup="sendStop()">Sdown</button>
+        <button class="bottom drectionBtn" id="B" ontouchstart="sendMotion('Ldown')" ontouchend='sendStop()' onmousedown="sendMotion('Ldown')" onmouseup="sendStop()">Ldown</button>
+        <button class="left_down drectionBtn" id="LD" ontouchstart="sendMotion('Gup')" ontouchend='sendStop()' onmousedown="sendMotion('Gup')" onmouseup="sendStop()">Gup</button>
+        <button class="right_down drectionBtn" id="RD" ontouchstart="sendMotion('Gdown')" ontouchend='sendStop()' onmousedown="sendMotion('Gdown')" onmouseup="sendStop()">Gdown</button>
+    </span>
+    <span id="open" class="open">
+        <button class="change" id = "C"  ontouchstart="sendMotion('C')" ontouchend='sendStop()' onmousedown="sendMotion('C')" onmouseup="sendStop()">C</button>
+    </span>
+</body>
+ 
+</html>
